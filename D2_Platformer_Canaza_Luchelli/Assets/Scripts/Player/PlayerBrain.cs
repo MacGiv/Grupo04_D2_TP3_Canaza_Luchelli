@@ -1,0 +1,83 @@
+using UnityEngine;
+
+/// <summary>
+/// Core controller for the player. Manages the state machine, physics, and component references.
+/// </summary>
+[RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(PlayerInputHandler))]
+[RequireComponent(typeof(PlayerMovementHandler))]
+public class PlayerBrain : MonoBehaviour
+{
+    public PlayerStateMachine StateMachine { get; private set; }
+
+    // States
+    public PlayerIdleState IdleState { get; private set; }
+    public PlayerMoveState MoveState { get; private set; }
+    public PlayerJumpState JumpState { get; private set; }
+    public PlayerFallState FallState { get; private set; }
+
+    // Cached Components
+    public Animator Anim { get; private set; }
+    public Rigidbody2D RB { get; private set; }
+    public PlayerInputHandler InputHandler { get; private set; }
+    public PlayerMovementHandler MovementHandler { get; private set; }
+
+    [Header("Player Data")]
+    [SerializeField] private PlayerSettingsSo playerSettings;
+    
+    [Header("Collision Checks")]
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float groundCheckRadius = 0.2f;
+    [SerializeField] private LayerMask whatIsGround;
+    public PlayerSettingsSo PlayerSettings => playerSettings;
+
+    public int FacingDirection { get; private set; } = 1;
+
+    private void Awake()
+    {
+        StateMachine = new PlayerStateMachine();
+
+        Anim = GetComponent<Animator>();
+        RB = GetComponent<Rigidbody2D>();
+        InputHandler = GetComponent<PlayerInputHandler>();
+        MovementHandler = GetComponent<PlayerMovementHandler>();
+
+        // Initialize states and pass the corresponding animation parameter names
+        IdleState = new PlayerIdleState(this, StateMachine, "idle");
+        MoveState = new PlayerMoveState(this, StateMachine, "move");
+        JumpState = new PlayerJumpState(this, StateMachine, "jump");
+        FallState = new PlayerFallState(this, StateMachine, "fall");
+    }
+
+    private void Start()
+    {
+        // Start the state machine in the Idle state
+        StateMachine.Initialize(IdleState);
+    }
+
+    private void Update()
+    {
+        StateMachine.CurrentState?.LogicUpdate();
+    }
+
+    private void FixedUpdate()
+    {
+        StateMachine.CurrentState?.PhysicsUpdate();
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (groundCheck != null)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        }
+    }
+
+    /// <summary>
+    /// Checks if the player is touching the ground layer.
+    /// </summary>
+    public bool CheckIfGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+    }
+}
