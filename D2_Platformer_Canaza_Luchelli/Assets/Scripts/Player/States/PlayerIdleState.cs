@@ -25,18 +25,21 @@ public class PlayerIdleState : PlayerState
     {
         base.LogicUpdate();
 
+        if (player.InputHandler.AttackInput)
+        {
+            stateMachine.ChangeState(player.AttackState);
+            return;
+        }
         if (!player.CheckIfGrounded())
         {
             stateMachine.ChangeState(player.FallState);
             return;
         }
-
         if (player.InputHandler.JumpInput && player.CheckIfGrounded())
         {
             stateMachine.ChangeState(player.JumpState);
             return;
         }
-
         if (player.InputHandler.NormalizedInputX != 0)
         {
             stateMachine.ChangeState(player.MoveState);
