@@ -4,7 +4,7 @@ using UnityEngine;
 /// Core controller for the player. Manages the state machine, physics, and component references.
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(PlayerInputHandler))]
-[RequireComponent(typeof(PlayerMovementHandler))]
+[RequireComponent(typeof(PlayerMovementHandler), typeof(PlayerCombatHandler))]
 public class PlayerBrain : MonoBehaviour
 {
     public PlayerStateMachine StateMachine { get; private set; }
@@ -14,12 +14,14 @@ public class PlayerBrain : MonoBehaviour
     public PlayerMoveState MoveState { get; private set; }
     public PlayerJumpState JumpState { get; private set; }
     public PlayerFallState FallState { get; private set; }
+    public PlayerAttackState AttackState { get; private set; }
 
     // Cached Components
     public Animator Anim { get; private set; }
     public Rigidbody2D RB { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
     public PlayerMovementHandler MovementHandler { get; private set; }
+    public PlayerCombatHandler CombatHandler { get; private set; }
 
     [Header("Player Data")]
     [SerializeField] private PlayerSettingsSo playerSettings;
@@ -29,7 +31,6 @@ public class PlayerBrain : MonoBehaviour
     [SerializeField] private float groundCheckRadius = 0.2f;
     [SerializeField] private LayerMask whatIsGround;
     public PlayerSettingsSo PlayerSettings => playerSettings;
-
     public int FacingDirection { get; private set; } = 1;
     private float coyoteTimer;
 
@@ -41,12 +42,14 @@ public class PlayerBrain : MonoBehaviour
         RB = GetComponent<Rigidbody2D>();
         InputHandler = GetComponent<PlayerInputHandler>();
         MovementHandler = GetComponent<PlayerMovementHandler>();
+        CombatHandler = GetComponent<PlayerCombatHandler>();
 
         // Initialize states and pass the corresponding animation parameter names
         IdleState = new PlayerIdleState(this, StateMachine, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, "move");
         JumpState = new PlayerJumpState(this, StateMachine, "jump");
         FallState = new PlayerFallState(this, StateMachine, "fall");
+        AttackState = new PlayerAttackState(this, StateMachine, "attack");
     }
 
     private void Start()
@@ -90,6 +93,17 @@ public class PlayerBrain : MonoBehaviour
     public bool CheckIfGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+    }
+
+    /// <summary>
+    /// Bridge method triggered by an Animation Event at the last frame of the attack animation.
+    /// </summary>
+    public void OnAttackAnimationFinished()
+    {
+        if (StateMachine.CurrentState == AttackState)
+        {
+            AttackState.FinishAttackAnimation();
+        }
     }
 
     /// <summary>
