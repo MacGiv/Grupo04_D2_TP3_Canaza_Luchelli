@@ -9,9 +9,10 @@ public class PlayerSettingsSo : ScriptableObject
     public string playerName;
     public int health = 100;
     public int damage = 10;
-    public float speed = 100;
-    public int maxRetries = 3;
-    public int highScore = 0;
+    public float speed = 10;
+    public float jumpForce = 15;
+    public float coyoteTime = 0.15f;
+    public float highScore = 0;
 
     /// <summary>
     /// Initializes player settings loading saved data.
@@ -22,10 +23,10 @@ public class PlayerSettingsSo : ScriptableObject
     }
 
     /// <summary>
-    /// Loads the player's high score.
+    /// Loads the player's settings. WIP
     /// </summary>
     private void LoadSettings()
     {
-        highScore = PlayerPrefs.GetInt("highScore", 0);
+
     }
 }
