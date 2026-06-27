@@ -35,7 +35,14 @@ public class MainMenuManager : MonoBehaviour
 
     private void OnCreditsPressed(CreditsRequestedEvent creditsRequestedEvent) => ShowOnly(creditsPanel);
 
-    private void OnExitPressed(ExitRequestedEvent exitRequestedEvent) => Debug.Log("Exit!");
+    private void OnExitPressed(ExitRequestedEvent exitRequestedEvent)
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
 
     private void OnBackPressed(BackRequestedEvent backRequestedEvent) => ShowOnly(mainPanel);
 
