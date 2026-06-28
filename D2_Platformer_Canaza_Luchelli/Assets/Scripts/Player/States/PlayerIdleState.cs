@@ -24,7 +24,12 @@ public class PlayerIdleState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
+        
+        if (player.InputHandler.DashInput)
+        {
+            stateMachine.ChangeState(player.DashState);
+            return;
+        }
         if (player.InputHandler.AttackInput)
         {
             stateMachine.ChangeState(player.AttackState);
