@@ -15,6 +15,11 @@ public class PlayerMoveState : PlayerState
     {
         base.LogicUpdate();
 
+        if (player.InputHandler.DashInput)
+        {
+            stateMachine.ChangeState(player.DashState);
+            return;
+        }
         if (player.InputHandler.AttackInput)
         {
             stateMachine.ChangeState(player.AttackState);
@@ -30,13 +35,11 @@ public class PlayerMoveState : PlayerState
             stateMachine.ChangeState(player.FallState);
             return;
         }
-
         if (player.InputHandler.JumpInput && player.CheckIfGrounded())
         {
             stateMachine.ChangeState(player.JumpState);
             return;
         }
-
         if (xInput == 0)
         {
             stateMachine.ChangeState(player.IdleState);
