@@ -15,6 +15,7 @@ public class PlayerBrain : MonoBehaviour
     public PlayerJumpState JumpState { get; private set; }
     public PlayerFallState FallState { get; private set; }
     public PlayerAttackState AttackState { get; private set; }
+    public PlayerDashState DashState { get; private set; }
 
     // Cached Components
     public Animator Anim { get; private set; }
@@ -32,6 +33,7 @@ public class PlayerBrain : MonoBehaviour
     [SerializeField] private LayerMask whatIsGround;
     public PlayerSettingsSo PlayerSettings => playerSettings;
     public int FacingDirection { get; private set; } = 1;
+    public bool IsInvulnerable { get; set; }
     private float coyoteTimer;
 
     private void Awake()
@@ -50,6 +52,7 @@ public class PlayerBrain : MonoBehaviour
         JumpState = new PlayerJumpState(this, StateMachine, "jump");
         FallState = new PlayerFallState(this, StateMachine, "fall");
         AttackState = new PlayerAttackState(this, StateMachine, "attack");
+        DashState = new PlayerDashState(this, StateMachine, "dash");
     }
 
     private void Start()
@@ -103,6 +106,18 @@ public class PlayerBrain : MonoBehaviour
         if (StateMachine.CurrentState == AttackState)
         {
             AttackState.FinishAttackAnimation();
+        }
+    }
+
+    /// <summary>
+    /// Bridge method triggered by an Animation Event at the exact frame the sword swings.
+    /// </summary>
+    public void TriggerMeleeHitbox()
+    {
+        if (StateMachine.CurrentState == AttackState)
+        {
+            int currentCombo = AttackState.GetComboCounter();
+            CombatHandler.CheckMeleeHit(currentCombo);
         }
     }
 
