@@ -10,13 +10,13 @@ public class PlayerInputHandler : MonoBehaviour
     /// The raw Vector2 input from the movement keys/joystick.
     /// </summary>
     public Vector2 RawMovementInput { get; private set; }
-
     /// <summary>
     /// The normalized X axis input (-1 for left, 1 for right, 0 for none).
     /// </summary>
     public int NormalizedInputX { get; private set; }
-
     public bool JumpInput { get; private set; }
+    public bool AttackInput { get; private set; }
+    public bool DashInput { get; private set; }
 
     /// <summary>
     /// Callback triggered by the Player Input component when movement keys are pressed or released.
@@ -52,7 +52,42 @@ public class PlayerInputHandler : MonoBehaviour
     }
 
     /// <summary>
+    /// Callback triggered for attacks.
+    /// </summary>
+    public void OnAttackInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            AttackInput = true;
+        }
+
+        if (context.canceled)
+        {
+            AttackInput = false;
+        }
+    }
+
+    /// <summary>
+    /// Callback triggered for dash.
+    /// </summary>
+    public void OnDashInput(InputAction.CallbackContext context)
+    {
+        if (context.started) DashInput = true;
+        if (context.canceled) DashInput = false;
+    }
+
+    /// <summary>
     /// Consumes the jump input so it doesn't trigger multiple times.
     /// </summary>
     public void UseJumpInput() => JumpInput = false;
+
+    /// <summary>
+    /// Consumes the attack input so it doesn't trigger continuously.
+    /// </summary>
+    public void UseAttackInput() => AttackInput = false;
+
+    /// <summary>
+    /// Consumes the dash input so it doesn't trigger continuously.
+    /// </summary>
+    public void UseDashInput() => DashInput = false;
 }

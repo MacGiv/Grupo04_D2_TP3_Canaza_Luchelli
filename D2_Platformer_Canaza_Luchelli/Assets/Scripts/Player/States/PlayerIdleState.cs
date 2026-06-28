@@ -24,19 +24,27 @@ public class PlayerIdleState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
+        
+        if (player.InputHandler.DashInput)
+        {
+            stateMachine.ChangeState(player.DashState);
+            return;
+        }
+        if (player.InputHandler.AttackInput)
+        {
+            stateMachine.ChangeState(player.AttackState);
+            return;
+        }
         if (!player.CheckIfGrounded())
         {
             stateMachine.ChangeState(player.FallState);
             return;
         }
-
         if (player.InputHandler.JumpInput && player.CheckIfGrounded())
         {
             stateMachine.ChangeState(player.JumpState);
             return;
         }
-
         if (player.InputHandler.NormalizedInputX != 0)
         {
             stateMachine.ChangeState(player.MoveState);
