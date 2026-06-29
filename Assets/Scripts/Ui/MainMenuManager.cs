@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Coordinates navigation between main menu panels.
@@ -29,7 +30,7 @@ public class MainMenuManager : MonoBehaviour
         EventBus.Unsubscribe<BackRequestedEvent>(OnBackPressed);
     }
 
-    private void OnPlayPressed(PlayRequestedEvent playRequestedEvent) => Debug.Log("Play!");
+    private void OnPlayPressed(PlayRequestedEvent playRequestedEvent) => ServiceLocator.GetService<CustomSceneManager>().GoToGameplay();
 
     private void OnSettingsPressed(SettingsRequestedEvent settingsRequestedEvent) => ShowOnly(settingsPanel);
 
