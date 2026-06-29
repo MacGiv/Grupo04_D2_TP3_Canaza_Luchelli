@@ -1,25 +1,31 @@
 using UnityEngine;
 
 /// <summary>
-/// Manages the core game loop and general game state.
+/// Manages the core game loop, global game state, and persistent resources like Souls.
 /// </summary>
 public class GameManager : MonoBehaviour, IService
 {
-    /// <summary>
-    /// Initializes the service with the provided game settings.
-    /// </summary>
-    public void Initialize(GameSettingsSo settingsSo) { }
+    public int TotalSouls { get; private set; }
 
-    /// <summary>
-    /// Performs a generic action for testing purposes.
-    /// </summary>
-    public void DoSomething()
+    public void Initialize(GameSettingsSo settingsSo)
     {
-        Debug.Log("Gamemanager doing something");
+        EventBus.Subscribe<SoulCollectedEvent>(OnSoulCollected);
+    }
+
+    public void DeInitialize()
+    {
+        EventBus.Unsubscribe<SoulCollectedEvent>(OnSoulCollected);
+        Destroy(gameObject);
     }
 
     /// <summary>
-    /// Deinitializes the service and destroys the attached GameObject.
+    /// Triggered when a SoulPickup is collected in the world.
     /// </summary>
-    public void DeInitialize() => Destroy(gameObject);
+    private void OnSoulCollected(SoulCollectedEvent eventData)
+    {
+        TotalSouls += eventData.Amount;
+        Debug.Log($"Collected {eventData.Amount} souls. Total: {TotalSouls}");
+
+        EventBus.Publish(new UIUpdateSoulsEvent(TotalSouls));
+    }
 }
