@@ -93,5 +93,6 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("Player is DEAD!");
         playerBrain.StateMachine.ChangeState(playerBrain.DeathState);
+        EventBus.Publish(new GameOverEvent(false));
     }
 }

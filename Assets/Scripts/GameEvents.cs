@@ -37,3 +37,9 @@ public struct TutorialToggleEvent
         Show = show;
     }
 }
+
+public struct GameOverEvent
+{
+    public bool IsVictory;
+    public GameOverEvent(bool isVictory) => IsVictory = isVictory;
+}
