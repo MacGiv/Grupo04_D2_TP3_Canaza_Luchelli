@@ -24,16 +24,17 @@ public struct UIUpdateSoulsEvent
     public UIUpdateSoulsEvent(int totalSouls) => TotalSouls = totalSouls;
 }
 
-public struct TutorialToggleEvent
+/// <summary>
+/// Dispatched when a player enters or exits a tutorial trigger zone.
+/// </summary>
+public struct TutorialEvent
 {
-    public string Message;
-    public Sprite TutorialSprite;
+    public TutorialDataSo Data;
     public bool Show;
 
-    public TutorialToggleEvent(string message, Sprite tutorialSprite, bool show)
+    public TutorialEvent(TutorialDataSo data, bool show)
     {
-        Message = message;
-        TutorialSprite = tutorialSprite;
+        Data = data;
         Show = show;
     }
 }
