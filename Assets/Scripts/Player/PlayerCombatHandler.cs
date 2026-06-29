@@ -7,10 +7,24 @@ public class PlayerCombatHandler : MonoBehaviour
 {
     [Header("Hitbox Settings")]
     [SerializeField] private Transform attackPoint;
-    [SerializeField] private float attackRadius = 0.5f;
-    [SerializeField] private LayerMask whatIsEnemy;
-    [SerializeField] private float knockbackForce = 1f;
 
+    private float attackRadius = 0.5f;
+    private LayerMask enemyLayer;
+    private float knockbackForce = 1f;
+
+    private void Awake()
+    {
+        PlayerBrain player = GetComponent<PlayerBrain>();
+        if (player != null)
+        {
+            attackRadius = player.PlayerSettings.attackRadius;
+            enemyLayer = player.PlayerSettings.whatIsEnemy;
+            knockbackForce = player.PlayerSettings.knockbackForce;
+        }
+        else
+            Debug.LogWarning("PlayerBrain not found.");
+
+    }
 
     /// <summary>
     /// Detects and damages enemies within the attack radius.
@@ -18,7 +32,7 @@ public class PlayerCombatHandler : MonoBehaviour
     /// </summary>
     public void CheckMeleeHit(int comboStep)
     {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, whatIsEnemy);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, enemyLayer);
         Vector2 knockbackDir = new Vector2(GetComponent<PlayerMovementHandler>().FacingDirection, 0.2f).normalized;
 
         foreach (Collider2D enemy in hitEnemies)
@@ -29,7 +43,6 @@ public class PlayerCombatHandler : MonoBehaviour
                 {
                     enemyHealth.TakeDamage(10, knockbackDir, knockbackForce);
                     Debug.Log($"Normal attack to {enemy.name} (Combo Step {comboStep}).");
-                    // Damage Enemy
                 }
                 else if (comboStep == 3)
                 {
