@@ -2,17 +2,17 @@ using System.Collections;
 using UnityEngine;
 
 /// <summary>
-/// Manages player's health, damage reception, and temporary invulnerability (i-frames) after getting hit.
+/// Manages player's health, damage reception, healing, and triggers health events via EventBus.
 /// </summary>
 public class PlayerHealth : MonoBehaviour
 {
     [Header("Health Settings")]
-    public int maxHealth = 100;
+    [SerializeField] private int maxHealth = 100;
     private int currentHealth;
 
     [Header("I-Frames Settings")]
-    public float invulnerabilityDuration = 1.5f; 
-    public float flashInterval = 0.1f;
+    [SerializeField] private float invulnerabilityDuration = 1.5f;
+    [SerializeField] private float flashInterval = 0.1f;
 
     private PlayerBrain playerBrain;
     private SpriteRenderer spriteRenderer;
@@ -20,52 +20,71 @@ public class PlayerHealth : MonoBehaviour
     private void Awake()
     {
         playerBrain = GetComponent<PlayerBrain>();
-        spriteRenderer = GetComponent<SpriteRenderer>(); 
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         currentHealth = maxHealth;
     }
 
+    private void Start()
+    {
+        PublishHealthUpdate();
+    }
+
     /// <summary>
-    /// Called by enemies or hazards to deal damage to the player.
+    /// Restores health to the player up to the maximum health limit.
     /// </summary>
+    public void Heal(int amount)
+    {
+        if (currentHealth <= 0) return;
+
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        Debug.Log($"Player healed by {amount}! Current HP: {currentHealth}");
+
+        PublishHealthUpdate();
+    }
+
     public void TakeDamage(int damage)
     {
-        if (playerBrain.IsInvulnerable) return;
+        if (playerBrain.IsInvulnerable || currentHealth <= 0) return;
 
         currentHealth -= damage;
         Debug.Log($"Player took {damage} damage! Current HP: {currentHealth}");
 
         if (currentHealth <= 0)
         {
+            currentHealth = 0;
+            PublishHealthUpdate();
             Die();
         }
         else
         {
             playerBrain.StateMachine.ChangeState(playerBrain.HitState);
+            PublishHealthUpdate();
             StartCoroutine(DamageRecoveryRoutine());
         }
     }
 
     /// <summary>
-    /// Handles the i-frames and the blinking visual effect.
+    /// Method to centralize publishing health data to the EventBus.
     /// </summary>
+    private void PublishHealthUpdate()
+    {
+        EventBus.Publish(new PlayerHealthChangedEvent(currentHealth, maxHealth));
+    }
+
     private IEnumerator DamageRecoveryRoutine()
     {
         playerBrain.IsInvulnerable = true;
-
         float elapsedTime = 0f;
         bool isSpriteVisible = true;
 
-        // Blinking
         while (elapsedTime < invulnerabilityDuration)
         {
             isSpriteVisible = !isSpriteVisible;
             spriteRenderer.enabled = isSpriteVisible;
-
             yield return new WaitForSeconds(flashInterval);
             elapsedTime += flashInterval;
         }
 
-        // Reset player's parameters (just in case)
         spriteRenderer.enabled = true;
         playerBrain.IsInvulnerable = false;
     }
