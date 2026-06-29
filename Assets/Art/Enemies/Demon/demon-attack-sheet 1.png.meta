@@ -1,0 +1,693 @@
+fileFormatVersion: 2
+guid: 34c1c57a5c818a8499dcd5bb07f160f9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3907844200695594403
+    second: demon-attack-sheet 1_0
+  - first:
+      213: 712644811728504323
+    second: demon-attack-sheet 1_1
+  - first:
+      213: -4491634387174720455
+    second: demon-attack-sheet 1_2
+  - first:
+      213: -8655158283474289764
+    second: demon-attack-sheet 1_3
+  - first:
+      213: -1625222611393996734
+    second: demon-attack-sheet 1_4
+  - first:
+      213: -444479702232521329
+    second: demon-attack-sheet 1_5
+  - first:
+      213: 8618927978573498244
+    second: demon-attack-sheet 1_6
+  - first:
+      213: 125091279788401550
+    second: demon-attack-sheet 1_7
+  - first:
+      213: 8241014211512658660
+    second: demon-attack-sheet 1_8
+  - first:
+      213: 3325869099515979387
+    second: demon-attack-sheet 1_9
+  - first:
+      213: 1015674868833246719
+    second: demon-attack-sheet 1_10
+  - first:
+      213: -368657326555033785
+    second: demon-attack-sheet 1_11
+  - first:
+      213: -4317394828719231992
+    second: demon-attack-sheet 1_12
+  - first:
+      213: 7027449051026631395
+    second: demon-attack-sheet 1_13
+  - first:
+      213: 526339731337924149
+    second: demon-attack-sheet 1_14
+  - first:
+      213: -3300783527564905970
+    second: demon-attack-sheet 1_15
+  - first:
+      213: 8900523487508640727
+    second: demon-attack-sheet 1_16
+  - first:
+      213: 5691963971552382328
+    second: demon-attack-sheet 1_17
+  - first:
+      213: -872477914642017938
+    second: demon-attack-sheet 1_18
+  - first:
+      213: 1188226997311751059
+    second: demon-attack-sheet 1_19
+  - first:
+      213: -8101653342913438246
+    second: demon-attack-sheet 1_20
+  - first:
+      213: 256807637101016674
+    second: demon-attack-sheet 1_21
+  - first:
+      213: 4075247281437154629
+    second: demon-attack-sheet 1_22
+  - first:
+      213: 7952938134157454978
+    second: demon-attack-sheet 1_23
+  - first:
+      213: -3764305794217903206
+    second: demon-attack-sheet 1_24
+  - first:
+      213: -3579668887151400472
+    second: demon-attack-sheet 1_25
+  - first:
+      213: -1065241626050327646
+    second: demon-attack-sheet 1_26
+  - first:
+      213: -1971020800627689230
+    second: demon-attack-sheet 1_27
+  - first:
+      213: -7910703745406040693
+    second: demon-attack-sheet 1_28
+  - first:
+      213: 6461073861363902167
+    second: demon-attack-sheet 1_29
+  - first:
+      213: -7609771156684946981
+    second: demon-attack-sheet 1_30
+  - first:
+      213: 7594516581728438222
+    second: demon-attack-sheet 1_31
+  - first:
+      213: -1286890364587168303
+    second: demon-attack-sheet 1_32
+  - first:
+      213: 6494498280990871470
+    second: demon-attack-sheet 1_33
+  - first:
+      213: 3580007527368136898
+    second: demon-attack-sheet 1_34
+  - first:
+      213: -3503596006675199118
+    second: demon-attack-sheet 1_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: demon-attack-sheet 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 440
+        width: 309
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3adf70c88937b3630800000000000000
+      internalID: 3907844200695594403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-sheet 1_1
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 440
+        width: 309
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3064a163ea2d3e900800000000000000
+      internalID: 712644811728504323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-sheet 1_2
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 440
+        width: 309
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93c758392528aa1c0800000000000000
+      internalID: -4491634387174720455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-sheet 1_3
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 440
+        width: 309
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9b3cbee563b2e780800000000000000
+      internalID: -8655158283474289764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-sheet 1_4
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 440
+        width: 309
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2489dee45ac0279e0800000000000000
+      internalID: -1625222611393996734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-sheet 1_5
+      rect:
+        serializedVersion: 2
+        x: 1545
+        y: 440
+        width: 309
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f852f86d014e4d9f0800000000000000
+      internalID: -444479702232521329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-sheet 1_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 220
+        width: 309
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4878c8bd4559c9770800000000000000
+      internalID: 8618927978573498244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-sheet 1_7
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 220
+        width: 309
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8369403bd96cb100800000000000000
+      internalID: 125091279788401550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-sheet 1_8
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 220
+        width: 309
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ea682a33c6fd5270800000000000000
+      internalID: 8241014211512658660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-sheet 1_9
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 220
+        width: 309
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b762916235cd72e20800000000000000
+      internalID: 3325869099515979387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-sheet 1_10
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 220
+        width: 309
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffdd81479e6681e00800000000000000
+      internalID: 1015674868833246719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-sheet 1_11
+      rect:
+        serializedVersion: 2
+        x: 1545
+        y: 220
+        width: 309
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74f87de5d1442eaf0800000000000000
+      internalID: -368657326555033785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-sheet 1_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 309
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80ce41f17488514c0800000000000000
+      internalID: -4317394828719231992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-sheet 1_13
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 0
+        width: 309
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ea299bcda3868160800000000000000
+      internalID: 7027449051026631395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-sheet 1_14
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 0
+        width: 309
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53e429d623fed4700800000000000000
+      internalID: 526339731337924149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-sheet 1_15
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 0
+        width: 309
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e027807bed24132d0800000000000000
+      internalID: -3300783527564905970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-sheet 1_16
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 0
+        width: 309
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d339f374f2058b70800000000000000
+      internalID: 8900523487508640727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demon-attack-sheet 1_17
+      rect:
+        serializedVersion: 2
+        x: 1545
+        y: 0
+        width: 309
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87d83b6231bedfe40800000000000000
+      internalID: 5691963971552382328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b48d5a00bc18a8741bdaceed125da942
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":3.0},"gridSpriteSize":{"x":309.0,"y":220.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      demon-attack-sheet 1_0: 3907844200695594403
+      demon-attack-sheet 1_1: 712644811728504323
+      demon-attack-sheet 1_10: 1015674868833246719
+      demon-attack-sheet 1_11: -368657326555033785
+      demon-attack-sheet 1_12: -4317394828719231992
+      demon-attack-sheet 1_13: 7027449051026631395
+      demon-attack-sheet 1_14: 526339731337924149
+      demon-attack-sheet 1_15: -3300783527564905970
+      demon-attack-sheet 1_16: 8900523487508640727
+      demon-attack-sheet 1_17: 5691963971552382328
+      demon-attack-sheet 1_2: -4491634387174720455
+      demon-attack-sheet 1_3: -8655158283474289764
+      demon-attack-sheet 1_4: -1625222611393996734
+      demon-attack-sheet 1_5: -444479702232521329
+      demon-attack-sheet 1_6: 8618927978573498244
+      demon-attack-sheet 1_7: 125091279788401550
+      demon-attack-sheet 1_8: 8241014211512658660
+      demon-attack-sheet 1_9: 3325869099515979387
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -25,6 +25,11 @@ public class PlayerFallState : PlayerState
         player.MovementHandler.CheckIfShouldFlip(xInput);
         player.MovementHandler.SetVelocity(player.PlayerSettings.speed * xInput, player.RB.linearVelocity.y);
 
+        if (player.InputHandler.DashInput)
+        {
+            stateMachine.ChangeState(player.DashState);
+            return;
+        }
         // Check if player is moving or standing still when reaches the ground
         if (player.CheckIfGrounded())
         {

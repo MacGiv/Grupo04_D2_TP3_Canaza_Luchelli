@@ -16,6 +16,8 @@ public class PlayerBrain : MonoBehaviour
     public PlayerFallState FallState { get; private set; }
     public PlayerAttackState AttackState { get; private set; }
     public PlayerDashState DashState { get; private set; }
+    public PlayerHitState HitState { get; private set; }
+    public PlayerDeathState DeathState { get; private set; }
 
     // Cached Components
     public Animator Anim { get; private set; }
@@ -23,6 +25,7 @@ public class PlayerBrain : MonoBehaviour
     public PlayerInputHandler InputHandler { get; private set; }
     public PlayerMovementHandler MovementHandler { get; private set; }
     public PlayerCombatHandler CombatHandler { get; private set; }
+
 
     [Header("Player Data")]
     [SerializeField] private PlayerSettingsSo playerSettings;
@@ -53,6 +56,8 @@ public class PlayerBrain : MonoBehaviour
         FallState = new PlayerFallState(this, StateMachine, "fall");
         AttackState = new PlayerAttackState(this, StateMachine, "attack");
         DashState = new PlayerDashState(this, StateMachine, "dash");
+        HitState = new PlayerHitState(this, StateMachine, "isHit");
+        DeathState = new PlayerDeathState(this, StateMachine, "isDead");    
     }
 
     private void Start()

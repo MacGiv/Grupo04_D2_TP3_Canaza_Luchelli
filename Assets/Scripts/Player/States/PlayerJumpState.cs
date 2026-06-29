@@ -26,7 +26,12 @@ public class PlayerJumpState : PlayerState
         int xInput = player.InputHandler.NormalizedInputX;
         player.MovementHandler.CheckIfShouldFlip(xInput);
         player.MovementHandler.SetVelocity(player.PlayerSettings.speed * xInput, player.RB.linearVelocity.y);
-
+        
+        if (player.InputHandler.DashInput)
+        {
+            stateMachine.ChangeState(player.DashState);
+            return;
+        }
         // If vertical velocity si less or equals to 0, means that player is falling
         if (player.RB.linearVelocity.y <= 0f)
         {

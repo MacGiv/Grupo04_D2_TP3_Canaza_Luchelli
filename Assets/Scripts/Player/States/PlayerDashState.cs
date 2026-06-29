@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerDashState : PlayerState
 {
-    private float dashTime = 0.2f;
-    private float dashSpeed = 25f;
+    private float dashTime;
+    private float dashSpeed;
     private float dashTimer;
     private float prevGravityValue;
 
@@ -13,6 +13,8 @@ public class PlayerDashState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        dashTime = player.PlayerSettings.dashTime;
+        dashSpeed = player.PlayerSettings.dashSpeed;
         dashTimer = dashTime;
         player.InputHandler.UseDashInput();
 
