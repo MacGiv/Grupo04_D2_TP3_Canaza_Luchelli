@@ -7,10 +7,10 @@ using UnityEngine;
 public class EnemyPatrolState : EnemyState
 {
     private float patrolTimer;
-    private float timeBeforeFlip = 3f;
+    private float timeBeforeFlip;
 
     public EnemyPatrolState(EnemyBrain enemy, EnemyStateMachine stateMachine, string animBoolName)
-        : base(enemy, stateMachine, animBoolName) { }
+        : base(enemy, stateMachine, animBoolName) { timeBeforeFlip = enemy.Settings.patrolTime; }
 
     public override void Enter()
     {

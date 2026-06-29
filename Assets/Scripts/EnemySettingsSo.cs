@@ -16,6 +16,7 @@ public class EnemySettingsSo : ScriptableObject
     public float chaseSpeed = 4.5f;
 
     [Header("Detection & Combat")]
+    public float patrolTime = 4f;
     public float visionRange = 7f;   
     public float attackRange = 1.5f; 
     public float attackCooldown = 2f;
