@@ -10,7 +10,7 @@ public static class ServiceLocator
     {
         var type = typeof(T);
         if (!_services.TryAdd(type, service))
-            Debug.LogWarning("Ya está suscripto: " + type);
+            Debug.LogWarning("Already subscribed: " + type);
     }
 
     public static void RemoveService<T>(T service) where T : IService
@@ -19,7 +19,7 @@ public static class ServiceLocator
         if (_services.ContainsKey(type))
             _services.Remove(type);
         else
-            Debug.LogWarning("No se encontró el servicio: " + type);
+            Debug.LogWarning("Service not found: " + type);
     }
 
     public static T GetService<T>() where T : class
@@ -28,7 +28,7 @@ public static class ServiceLocator
         if (_services.TryGetValue(type, out var service))
             return (T)service;
 
-        Debug.LogError("No se encontró el servicio: " + type);
+        Debug.LogError("Service not found: " + type);
         return null;
     }
 
