@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 100;
+    private int maxHealth;
     private int currentHealth;
 
     private Rigidbody2D rb;
@@ -15,6 +15,7 @@ public class EnemyHealth : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        maxHealth = GetComponent<EnemyBrain>().Settings.maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
         currentHealth = maxHealth;
@@ -34,7 +35,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Die();
+            GetComponent<EnemyBrain>().StateMachine.ChangeState(GetComponent<EnemyBrain>().DeathState);
         }
     }
 
