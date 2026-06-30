@@ -30,6 +30,7 @@ public class PlayerSettingsSo : ScriptableObject
     public AudioClip attackSound;
     public AudioClip normalDamageSound;
     public AudioClip criticalDamageSound;
+    public AudioClip dashSound;
 
     /// <summary>
     /// Initializes player settings loading saved data.

@@ -21,6 +21,8 @@ public class PlayerDashState : PlayerState
         player.IsInvulnerable = true;
         prevGravityValue = player.RB.gravityScale;
         player.RB.gravityScale = 0f; // Avoid falling while airborne
+
+        EventBus.Publish(new SfxRequestedEvent { clip = player.PlayerSettings.dashSound });
     }
 
     public override void LogicUpdate()
