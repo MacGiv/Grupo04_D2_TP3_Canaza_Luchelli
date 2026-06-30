@@ -26,6 +26,12 @@ public class PlayerSettingsSo : ScriptableObject
     public  LayerMask whatIsEnemy;
     public float knockbackForce = 1f;
 
+    [Header("Sounds")]
+    public AudioClip attackSound;
+    public AudioClip normalDamageSound;
+    public AudioClip criticalDamageSound;
+    public AudioClip dashSound;
+
     /// <summary>
     /// Initializes player settings loading saved data.
     /// </summary>

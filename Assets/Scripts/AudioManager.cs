@@ -6,7 +6,19 @@ using UnityEngine.Audio;
 /// </summary>
 public class AudioManager : MonoBehaviour, IService
 {
-    private AudioSource bgmSource;
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource sfxSource;
+
+    /// <summary>
+    /// Initializes the service with the provided game settings.
+    /// </summary>
+    public void Initialize(GameSettingsSo settingsSo) 
+    {
+        musicSource.volume = AudioData.MasterVolume;
+        sfxSource.volume = AudioData.SfxVolume;
+
+        EventBus.Subscribe<SfxRequestedEvent>(OnSFXRequested);
+    }
 
     private void Awake()
     {
@@ -16,35 +28,16 @@ public class AudioManager : MonoBehaviour, IService
         bgmSource.volume = 1f;
     }
 
-    public void PlayBGM(AudioClip newClip)
-    {
-        if (newClip == null) return;
-        if (bgmSource.clip == newClip && bgmSource.isPlaying) return;
-
-        bgmSource.Stop();
-        bgmSource.clip = newClip;
-        bgmSource.Play();
-    }
-
-    public void StopBGM()
-    {
-        bgmSource.Stop();
-    }
-
-    public void Initialize(GameSettingsSo settingsSo)
-    {
-        if (settingsSo.BGMMixerGroup != null)
-        {
-            bgmSource.outputAudioMixerGroup = settingsSo.BGMMixerGroup;
-        }
-        else
-        {
-            Debug.LogWarning("AudioManager: BGMMixerGroup not assigned.");
-        }
-    }
-
+    /// <summary>
+    /// Deinitializes the service and destroys the attached GameObject.
+    /// </summary>
     public void DeInitialize()
     {
+        EventBus.Unsubscribe<SfxRequestedEvent>(OnSFXRequested);
+
         Destroy(gameObject);
     }
+
+    private void OnSFXRequested(SfxRequestedEvent sfxRequestedEvent) 
+        => sfxSource.PlayOneShot(sfxRequestedEvent.clip);
 }

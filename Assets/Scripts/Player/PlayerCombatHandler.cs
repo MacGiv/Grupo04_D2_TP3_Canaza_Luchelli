@@ -8,13 +8,14 @@ public class PlayerCombatHandler : MonoBehaviour
     [Header("Hitbox Settings")]
     [SerializeField] private Transform attackPoint;
 
+    private PlayerBrain player;
     private float attackRadius = 0.5f;
     private LayerMask enemyLayer;
     private float knockbackForce = 1f;
 
     private void Awake()
     {
-        PlayerBrain player = GetComponent<PlayerBrain>();
+        player = GetComponent<PlayerBrain>();
         if (player != null)
         {
             attackRadius = player.PlayerSettings.attackRadius;
@@ -43,11 +44,15 @@ public class PlayerCombatHandler : MonoBehaviour
                 {
                     enemyHealth.TakeDamage(10, knockbackDir, knockbackForce);
                     Debug.Log($"Normal attack to {enemy.name} (Combo Step {comboStep}).");
+
+                    EventBus.Publish(new SfxRequestedEvent { clip = player.PlayerSettings.normalDamageSound });
                 }
                 else if (comboStep == 3)
                 {
                     enemyHealth.TakeDamage(25, knockbackDir, knockbackForce*3);
                     Debug.Log($"¡Special Attack to {enemy.name}! (Combo Step {comboStep}).");
+
+                    EventBus.Publish(new SfxRequestedEvent { clip = player.PlayerSettings.criticalDamageSound });
                 }
             }
         }

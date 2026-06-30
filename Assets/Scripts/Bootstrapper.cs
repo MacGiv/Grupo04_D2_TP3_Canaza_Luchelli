@@ -9,6 +9,7 @@ public class Bootstrapper : MonoBehaviour
     /// Reference to the global game settings.
     /// </summary>
     [SerializeField] private GameSettingsSo gameSettings;
+    [SerializeField] private AudioManager audioManagerPrefab;
 
     /// <summary>
     /// Clears existing services, instantiates new manager GameObjects, and registers them.
@@ -20,7 +21,7 @@ public class Bootstrapper : MonoBehaviour
         ServiceLocator.DeInitializeServices();
         ServiceLocator.ClearServices();
 
-        ServiceLocator.AddService(new GameObject("Game Manager").AddComponent<GameManager>());
+        ServiceLocator.AddService(Instantiate(audioManagerPrefab));
         ServiceLocator.AddService(new GameObject("Custom Scene Manager").AddComponent<CustomSceneManager>());
         ServiceLocator.AddService(new GameObject("Audio Manager").AddComponent<AudioManager>());
         ServiceLocator.AddService(new GameObject("Enemy Manager").AddComponent<EnemyManager>());

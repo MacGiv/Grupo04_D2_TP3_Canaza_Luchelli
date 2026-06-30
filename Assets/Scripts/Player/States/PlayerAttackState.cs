@@ -62,6 +62,8 @@ public class PlayerAttackState : PlayerState
     {
         player.Anim.SetInteger("comboCounter", comboCounter);
         player.Anim.SetTrigger("attack");
+
+        EventBus.Publish(new SfxRequestedEvent { clip = player.PlayerSettings.attackSound });
     }
 
     public void FinishAttackAnimation()
