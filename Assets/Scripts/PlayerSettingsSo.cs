@@ -26,6 +26,9 @@ public class PlayerSettingsSo : ScriptableObject
     public  LayerMask whatIsEnemy;
     public float knockbackForce = 1f;
 
+    [Header("Sounds")]
+    public AudioClip attackSound;
+
     /// <summary>
     /// Initializes player settings loading saved data.
     /// </summary>
